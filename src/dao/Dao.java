@@ -28,4 +28,8 @@ public interface Dao {
     int gopay(int account, String password, int money, int userid);
 
     int addmessage(int userid, String text);
+
+    void addorder(List<AddShopCar> addShopCars);
+
+    List<Order> getorder(int user);
 }

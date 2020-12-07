@@ -294,5 +294,54 @@ public class Daolmpl implements Dao {
         return 1;
     }
 
+    @Override
+    public void addorder(List<AddShopCar> addShopCars) {
+        try {
+
+            for (AddShopCar addShopCar : addShopCars){
+                PreparedStatement pst = conn.prepareStatement("insert into shoporder(ordertime,userid,url,shopname,shopnum,shopprice,recever,address) values(now(),?,?,?,?,?,?,?)");
+                pst.setInt(1,addShopCar.getUserid());
+                pst.setString(2, addShopCar.getUrl());
+                pst.setString(3, addShopCar.getName());
+                pst.setInt(4,addShopCar.getNumber());
+                pst.setInt(5,addShopCar.getPrice());
+                pst.setString(6, "张松林");
+                pst.setString(7, "软件大楼908A");
+                pst.executeUpdate();
+                pst.close();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public  List<Order> getorder(int user) {
+        List<Order> orders = new ArrayList<Order>();
+        try {
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select * from shoporder where userid='"+user+"'");
+
+            while (rs.next()) {
+                Order order = new Order();
+                order.setOrderid(rs.getInt("orderid"));
+                order.setOrdertome(rs.getString("ordertime"));
+                order.setUrl(rs.getString("url"));
+                order.setShopprice(rs.getInt("shopprice"));
+                order.setShopname(rs.getString("shopname"));
+                order.setShopnum(rs.getInt("shopnum"));
+                order.setAddress(rs.getString("address"));
+                order.setRecever(rs.getString("recever"));
+                order.setUserid(rs.getInt("userid"));
+                orders.add(order);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return orders;
+    }
+
 
 }
