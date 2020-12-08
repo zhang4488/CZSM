@@ -58,7 +58,7 @@
             <input type="submit" name="submit" value="提交" style="height:40px;width: 90px;background-color: royalblue;border-radius: 10px;">
         </div>
         <div class="button">
-            <a href="index.jsp"><input type="button"  value="返回" style="height:40px;width: 90px;background-color: royalblue;border-radius: 10px;"/></a>
+            <a href="show.jsp"><input type="button"  value="返回" style="height:40px;width: 90px;background-color: royalblue;border-radius: 10px;"/></a>
         </div>
     </form>
 </body>

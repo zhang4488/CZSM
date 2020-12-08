@@ -2,7 +2,8 @@
 <%@ page import="dao.Daolmpl" %>
 <%@ page import="data.Order" %>
 <%@ page import="data.AddShopCar" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: 86182
   Date: 2020/12/7
@@ -126,15 +127,17 @@
 <%
     request.setCharacterEncoding("UTF-8");
     boolean login = Boolean.parseBoolean(request.getParameter("login"));
-    if (!login){
+    List<Order> orders = new ArrayList<Order>();
+    if (login){
+        String toorderuserid = request.getParameter("toorderuserid");
+        int user = Integer.parseInt(toorderuserid);
+        Dao dao = new Daolmpl();
+        List<Order> orderss = dao.getorder(user);
+        orders=orderss;
+    }else {
         request.setAttribute("loginflag","ddd");
         request.getRequestDispatcher("show.jsp").forward(request,response);
     }
-    String toorderuserid = request.getParameter("toorderuserid");
-    int user = Integer.parseInt(toorderuserid);
-    Dao dao = new Daolmpl();
-    List<Order> orders = dao.getorder(user);
-    System.out.println(orders);
 
 %>
 <div class="nav">
@@ -219,6 +222,9 @@
 
     </table>
     </content>
+    <div class="banquan">
+        <a href="show.jsp">返回</a>
+    </div>
     <div class="banquan">
         <p>&copy; 2020 <EStore>ShuMa</ShuMa> Company, Inc. </p>
     </div>

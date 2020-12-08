@@ -219,10 +219,9 @@
     </div>
     <div id="lunbo">
       <div id="photo">
-        <img src="img/picic1.webp"/>
-        <img src="img/picic2.webp"/>
-        <img src="img/picic3.webp"/>
         <img src="img/picic4.webp"/>
+        <img src="img/picic3.webp"/>
+        <img src="img/picic2.webp"/>
       </div>
     </div>
   </div>
