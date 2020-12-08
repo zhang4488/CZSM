@@ -114,7 +114,7 @@ public class Daolmpl implements Dao {
         PreparedStatement pst = null;
         Detail detail = new Detail();
         try {
-            pst = conn.prepareStatement("select * from detail where shoppingid=?");
+            pst = conn.prepareStatement("select * from para where shoppingid=?");
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
 
@@ -124,8 +124,8 @@ public class Daolmpl implements Dao {
                 detail.setPrice(rs.getInt("price"));
                 detail.setBrand(rs.getString("brand"));
                 detail.setPublictime(rs.getString("publicdate"));
-                detail.setTips(rs.getString("px"));
-                detail.setUrl(rs.getString("save"));
+                detail.setTips(rs.getString("tips"));
+                detail.setUrl(rs.getString("url"));
             }
 
         } catch (SQLException e) {
@@ -226,13 +226,13 @@ public class Daolmpl implements Dao {
         Parameter parameter = new Parameter();
         try {
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from detail where shoppingid='"+shopid+"'");
+            ResultSet rs = st.executeQuery("select * from para where shoppingid='"+shopid+"'");
 
             if (rs.next()) {
                 parameter.setShoppingid(rs.getInt("shoppingid"));
                 parameter.setTypeid(rs.getInt("typeid"));
                 parameter.setPrice(rs.getInt("price"));
-                parameter.setUrl(rs.getString("save"));
+                parameter.setUrl(rs.getString("url"));
                 parameter.setTime(rs.getString("publicdate"));
                 parameter.setWight(rs.getString("wheight"));
                 parameter.setCpu(rs.getString("CPU"));
@@ -241,6 +241,9 @@ public class Daolmpl implements Dao {
                 parameter.setResolving(rs.getString("fenbianlv"));
                 parameter.setName(rs.getString("name"));
                 parameter.setBrand(rs.getString("brand"));
+                parameter.setResolving(rs.getString("fenbianlv"));
+                parameter.setPx(rs.getString("px"));
+                parameter.setNc(rs.getString("save"));
             }
 
         } catch (SQLException e) {
@@ -250,7 +253,7 @@ public class Daolmpl implements Dao {
     }
 
     @Override
-    public int gopay(int account, String password, int money, int userid) {
+    public int gopay(int account, String password, int money, int userid ) {
         try {
             PreparedStatement pst = conn.prepareStatement("select * from userinfo where account=? && accountid=? && acpassword=?");
             pst.setInt(1, userid);
@@ -295,7 +298,7 @@ public class Daolmpl implements Dao {
     }
 
     @Override
-    public void addorder(List<AddShopCar> addShopCars) {
+    public void addorder(List<AddShopCar> addShopCars, String address, String receiver) {
         try {
 
             for (AddShopCar addShopCar : addShopCars){
@@ -305,8 +308,8 @@ public class Daolmpl implements Dao {
                 pst.setString(3, addShopCar.getName());
                 pst.setInt(4,addShopCar.getNumber());
                 pst.setInt(5,addShopCar.getPrice());
-                pst.setString(6, "张松林");
-                pst.setString(7, "软件大楼908A");
+                pst.setString(6, receiver);
+                pst.setString(7, address);
                 pst.executeUpdate();
                 pst.close();
             }

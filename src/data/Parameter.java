@@ -149,4 +149,24 @@ public class Parameter {
     String power;
     String size;
     String resolving;
+
+    public String getNc() {
+        return nc;
+    }
+
+    public void setNc(String nc) {
+        this.nc = nc;
+    }
+
+    public String getXiangsu() {
+        return xiangsu;
+    }
+
+    public void setXiangsu(String xiangsu) {
+        this.xiangsu = xiangsu;
+    }
+
+    String nc;
+    String xiangsu;
+
 }

@@ -136,11 +136,11 @@
         }
         li.goshopping{
             border-radius: 10px;
-            background-color:yellow;
+            background-color:#4a77d4;
         }
         li.clear{
             border-radius: 10px;
-            background-color: greenyellow;
+            background-color: #4a77d4;
         }
         li.pay{
             border-radius: 10px;

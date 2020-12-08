@@ -25,11 +25,11 @@ public interface Dao {
 
     Parameter getParameter(int shopid, int typeid);
 
-    int gopay(int account, String password, int money, int userid);
+    int gopay(int account, String password, int money, int userid );
 
     int addmessage(int userid, String text);
 
-    void addorder(List<AddShopCar> addShopCars);
+    void addorder(List<AddShopCar> addShopCars, String address, String receiver);
 
     List<Order> getorder(int user);
 }

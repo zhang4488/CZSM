@@ -132,6 +132,10 @@
         <input type="text" name="accountId" class="form-control" style="margin-top:10px;margin-bottom: 20px;border-radius: 8px;height: 20px;" placeholder="信用卡账号" required=""><br>
         <label class="title">信用卡密码</label>
         <input type="password" name="password" class="form-control"style="border-radius: 8px;height: 20px;" placeholder="信用卡密码" required=""><br>
+        <label class="title">收货地址</label>
+        <input type="text" name="address" class="form-control"style="border-radius: 8px;height: 20px;" placeholder="收货地址" required=""><br>
+        <label class="title">收货人姓名</label>
+        <input type="text" name="receiver" class="form-control"style="border-radius: 8px;height: 20px;" placeholder="收货人姓名" required=""><br>
 
         <button class="" type="submit" style="margin:20px auto;background-color:deepskyblue;width: 150px;height: 40px;border-radius: 10px;">确认支付</button>
     </form>

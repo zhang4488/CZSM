@@ -187,7 +187,7 @@
             <td>价格</td>
             <td>总金额</td>
             <td>收货人</td>
-            <td>交易操作</td>
+            <td>收货地址</td>
         </tr>
         <%
             for (Order order : orders) {

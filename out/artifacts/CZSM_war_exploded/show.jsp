@@ -317,7 +317,11 @@
     <div id="main-content" onclick="alertVal()">
         <ul class="nav">
             <li><a href="index.jsp">成职数码</a></li>
-            <li><a href="#">我的订单</a></li>
+            <% if (session.getAttribute("user") != null) {%>
+            <li><a href="order.jsp?toorderuserid=<%=user.getId()%>&login=<%=login%>">我的订单</a></li>
+            <%} else {%>
+            <li><a href="order.jsp?login=<%=login%>">我的订单</a></li>
+            <%}%>
             <li><a href="parameterComparison.jsp">对比栏</a></li>
             <% if (session.getAttribute("user") != null) {%>
             <li><a href="MessageServlet?toboxuserid=<%=user.getId()%>&method=just&login=<%=login%>">意见反馈</a></li>
@@ -418,13 +422,20 @@
             %>
             <%if (show.getStid()==3){%>
             <div class="select_content">
-                <img src="<%=show.getUrl()%>" alt="#" class="con_photo">
+                <a href="detail.jsp?sid=<%=show.getSid()%>" id="imgstyle">
+                    <img src="<%=show.getUrl()%>" alt="#" class="con_photo">
+                </a>
                 <div class="se_con_text">
                     <p><%=show.getSname()%></p>
                     <p><%=show.getIntroduce()%></p>
                     <p><%=show.getNprice()+"元"%></p>
                     <p><%=show.getOprice()+"元"%></p>
-                    <p>添加到对比篮</p>
+                    <p><a href="ConstractServlet?method=<%=method%>&Pshopid=<%=show.getSid()%>&typeid=<%=show.getStid()%>&yztypeid2=<%=yztype%>">添加到对比篮</a></p>
+                    <% if (session.getAttribute("user") != null) {%>
+                    <a href="ShopCarServlet?method=add&userid=<%=user.getId()%>&shopid=<%=show.getSid()%>&shopurl=<%=show.getUrl()%>&shopprice=<%=show.getNprice()%>&shopname=<%=show.getSname()%>&login=<%=login%>"><p>加入购物车</p></a>
+                    <%} else {%>
+                    <a href="ShopCarServlet?method=add&shopid=<%=show.getSid()%>&shopurl=<%=show.getUrl()%>&shopprice=<%=show.getNprice()%>&shopname=<%=show.getSname()%>&login=<%=login%>"><p>加入购物车</p></a>
+                    <%}%>
                 </div>
             </div>
             <%}}%>

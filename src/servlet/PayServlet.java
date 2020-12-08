@@ -2,6 +2,7 @@ package servlet;
 
 import dao.Dao;
 import dao.Daolmpl;
+import data.AddShopCar;
 import data.Show;
 import data.User;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "PayServlet",urlPatterns = "/PayServlet")
 public class PayServlet extends HttpServlet {
@@ -20,12 +22,16 @@ public class PayServlet extends HttpServlet {
         String password = request.getParameter("password");
         String smoney = request.getParameter("money");
         String user = request.getParameter("userid");
+        String address = request.getParameter("address");
+        String receiver = request.getParameter("receiver");
         int account = Integer.parseInt(accountid);
         int money = Integer.parseInt(smoney);
         int userid = Integer.parseInt(user);
         Dao dao = new Daolmpl();
         int payflag = dao.gopay(account,password,money,userid);
         if (payflag==1){
+            List<AddShopCar> addShopCars = dao.getshopcar(userid);
+            dao.addorder(addShopCars,address,receiver);
             dao.clearshopcar(userid);
             request.setAttribute("info","支付成功！");
             request.getRequestDispatcher("show.jsp").forward(request,response);

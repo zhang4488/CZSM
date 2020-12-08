@@ -184,14 +184,14 @@
     <div class="fenlei">
       <p class="title">数码分类</p>
       <div class="content">
-        <img src="img/相机.png" alt="" width="25px">
-        <p class="content-title"><a href="show.jsp">摄影摄像</a></p>
+        <img src="img/手机.png" alt="" width="25px">
+        <p class="content-title"><a href="show.jsp">智能手机</a></p>
         <div class="content-text">
-          <a href="#">微单相机</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="#">专业单反</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="#">运动相机</a>
-          &nbsp;&nbsp;<a href="#">摄像机</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="#">拍立得</a>
+          <a href="#">大屏手机</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="#">游戏手机</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="#">手机背套</a>
+          &nbsp;&nbsp;<a href="#">家居音箱</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="#">专业音频</a>
         </div>
       </div>
       <div class="content">
@@ -206,14 +206,14 @@
         </div>
       </div>
       <div class="content">
-        <img src="img/手机.png" alt="" width="25px">
-        <p class="content-title"><a href="show.html">智能手机</a></p>
+        <img src="img/相机.png" alt="" width="25px">
+        <p class="content-title"><a href="show.html">摄影摄像</a></p>
         <div class="content-text">
-          <a href="#">大屏手机</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="#">游戏手机</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="#">手机背套</a>
-          &nbsp;&nbsp;<a href="#">家居音箱</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="#">专业音频</a>
+          <a href="#">微单相机</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="#">专业单反</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="#">运动相机</a>
+          &nbsp;&nbsp;<a href="#">摄像机</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="#">拍立得</a>
         </div>
       </div>
     </div>

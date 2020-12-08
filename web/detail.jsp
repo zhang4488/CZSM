@@ -26,7 +26,7 @@
     String sid = request.getParameter("sid");
     int id = Integer.parseInt(sid);
     System.out.println(id);
-    Dao dao = new Daolmpl(userid);
+    Dao dao = new Daolmpl();
     Detail detail = dao.getdetail(id);
 %>
 <center>
@@ -46,8 +46,7 @@
         商品备注: <%=detail.getTips()%>
         <br><br>
 
-        <a href="" class="first">继续购物</a>
-        <a href="" class="first" role="button">加入购物车</a>
+        <a href="show.jsp" class="first">继续购物</a>
     </div>
 
 </center>

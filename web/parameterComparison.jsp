@@ -31,11 +31,29 @@
         session.removeAttribute("parameter");
         parameter = null;
     }
-    int price = 5999;
-    String url = "./img/索尼（SONY）DSC-RX100M7G.png";
+    int price = 0;
+    int shopid = 1;
+    String brand = "待添加";
+    String name = "待添加";
+    String ptime = "待添加";
+    String weight = "待添加";
+    String nc = "待添加";
+    String dcrl = "待添加";
+    String psize = "待添加";
+    String Resolving = "待添加";
+    String url = "./img/czsm.png";
     if (parameter!=null){
-        price=parameter.getPrice();
-        url=parameter.getUrl();
+         price = parameter.getPrice();
+         shopid = parameter.getShoppingid();
+         brand = parameter.getBrand();
+         name = parameter.getName();
+         ptime = parameter.getTime();
+         weight = parameter.getWight();
+         nc = parameter.getNc();
+         dcrl = parameter.getBattery();
+         psize = parameter.getSize();
+         url = parameter.getUrl();
+         Resolving = parameter.getResolving();
     }
 
     Parameter parameter2 = (Parameter) session.getAttribute("parameter2");
@@ -43,11 +61,29 @@
         session.removeAttribute("parameter2");
         parameter2 = null;
     }
-    int price2 = 5999;
-    String url2 = "./img/索尼（SONY）DSC-RX100M7G.png";
+    int price2 = 0;
+    int shopid2 = 1;
+    String brand2 = "待添加";
+    String name2 = "待添加";
+    String ptime2 = "待添加";
+    String weight2 = "待添加";
+    String nc2 = "待添加";
+    String dcrl2 = "待添加";
+    String psize2 = "待添加";
+    String Resolving2 = "待添加";
+    String url2 = "./img/czsm.png";
     if (parameter2!=null){
-        price2=parameter2.getPrice();
-        url2=parameter2.getUrl();
+        price2 = parameter2.getPrice();
+        shopid2 = parameter2.getShoppingid();
+        brand2 = parameter2.getBrand();
+        name2 = parameter2.getName();
+        ptime2 = parameter2.getTime();
+        weight2 = parameter2.getWight();
+        nc2 = parameter2.getNc();
+        dcrl2 = parameter2.getBattery();
+        psize2 = parameter2.getSize();
+        url2 = parameter2.getUrl();
+        Resolving2 = parameter2.getResolving();
     }
 
 %>
@@ -72,12 +108,12 @@
                                 </div>
                                 <div class="p-name">
                                     <a href="#">
-                                        GoPro HERO9 Black 5K运动相机
+                                        <%=name%>
                                     </a>
                                 </div>
                                 <div class="p-btnbox">
                                     <% if (session.getAttribute("parameter") != null) {%>
-                                    <a href="#" class="btn-primary">立即查看</a>
+                                    <a href="detail.jsp?sid=<%=shopid%>" class="btn-primary">立即查看</a>
                                     <a href="parameterComparison.jsp?delete1=delete" class="btn-primary">删除</a>
                                     <%} else {%>
                                     <a href="show.jsp" class="btn-primary">添加对比商品</a>
@@ -94,12 +130,12 @@
                                 </div>
                                 <div class="p-name" >
                                     <a href="#">
-                                        DJI 大疆 Osmo Action 灵眸运动相机
+                                        <%=name2%>
                                     </a>
                                 </div>
                                 <div class="p-btnbox">
                                     <% if (session.getAttribute("parameter2") != null) {%>
-                                    <a href="#" class="btn-primary">立即查看</a>
+                                    <a href="detail.jsp?sid=<%=shopid2%>" class="btn-primary">立即查看</a>
                                     <a href="parameterComparison.jsp?delete2=delete" class="btn-primary">删除</a>
                                     <%} else {%>
                                     <a href="show.jsp" class="btn-primary">添加对比商品</a>
@@ -116,19 +152,31 @@
                 <tbody>
                 <tr class="tr-item">
                     <th>
-                        <div class="tb-title">价格<div>
+                        <div class="tb-title">品牌<div>
                     </th>
                     <td>
-                        <div class='tb-text'><%=price%></div>
+                        <div class='tb-text'><%=brand%></div>
                     </td>
                     <td>
-                        <div class='tb-text'><%=price2%></div>
+                        <div class='tb-text'><%=brand2%></div>
                     </td>
 
                 </tr>
                 <tr class="tr-item">
                     <th>
                         <div class="tb-title">名称</div>
+                    </th>
+                    <td>
+                        <div class='tb-text'><%=name%></div>
+                    </td>
+                    <td>
+                        <div class='tb-text'><%=name2%></div>
+                    </td>
+
+                </tr>
+                <tr class="tr-item">
+                    <th>
+                        <div class="tb-title">价格</div>
                     </th>
                     <td>
                         <div class='tb-text'><%=price%></div>
@@ -143,22 +191,10 @@
                         <div class="tb-title">上市时间</div>
                     </th>
                     <td>
-                        <div class='tb-text'><%=price%></div>
+                        <div class='tb-text'><%=ptime%></div>
                     </td>
                     <td>
-                        <div class='tb-text'>2020.12.12</div>
-                    </td>
-
-                </tr>
-                <tr class="tr-item">
-                    <th>
-                        <div class="tb-title">品牌</div>
-                    </th>
-                    <td>
-                        <div class='tb-text'><%=price%></div>
-                    </td>
-                    <td>
-                        <div class='tb-text'>iphone</div>
+                        <div class='tb-text'><%=ptime2%></div>
                     </td>
 
                 </tr>
@@ -167,10 +203,10 @@
                         <div class="tb-title">机身重量</div>
                     </th>
                     <td>
-                        <div class='tb-text'><%=price%></div>
+                        <div class='tb-text'><%=weight%></div>
                     </td>
                     <td>
-                        <div class='tb-text'>180g</div>
+                        <div class='tb-text'><%=weight2%></div>
                     </td>
 
                 </tr>
@@ -184,13 +220,25 @@
 
                 <tr class="tr-item">
                     <th>
+                        <div class="tb-title">手机内存</div>
+                    </th>
+                    <td>
+                        <div class='tb-text'><%=nc%></div>
+                    </td>
+                    <td>
+                        <div class='tb-text'><%=nc2%></div>
+                    </td>
+
+                </tr>
+                <tr class="tr-item">
+                    <th>
                         <div class="tb-title">电池容量</div>
                     </th>
                     <td>
-                        <div class='tb-text'><%=price%></div>
+                        <div class='tb-text'><%=dcrl%></div>
                     </td>
                     <td>
-                        <div class='tb-text'>4300</div>
+                        <div class='tb-text'><%=dcrl2%></div>
                     </td>
 
                 </tr>
@@ -200,6 +248,30 @@
                     <th colspan="3">
                         <h5 class="tb-subtit"><i class="i-fold"></i><em>屏幕参数</em></h5>
                     </th>
+                </tr>
+                <tr class="tr-item">
+                    <th>
+                        <div class="tb-title">屏幕分辨率</div>
+                    </th>
+                    <td>
+                        <div class='tb-text'><%=Resolving%></div>
+                    </td>
+                    <td>
+                        <div class='tb-text'><%=Resolving2%></div>
+                    </td>
+
+                </tr>
+                <tr class="tr-item">
+                    <th>
+                        <div class="tb-title">主屏幕尺寸（英寸）</div>
+                    </th>
+                    <td>
+                        <div class='tb-text'><%=psize%></div>
+                    </td>
+                    <td>
+                        <div class='tb-text'><%=psize2%></div>
+                    </td>
+
                 </tr>
                 <tr class="tr-item">
                     <th>
@@ -213,18 +285,6 @@
                     </td>
 
                 </tr>
-                <tr class="tr-item">
-                    <th>
-                        <div class="tb-title">主屏幕尺寸（英寸）</div>
-                    </th>
-                    <td>
-                        <div class='tb-text'>--</div>
-                    </td>
-                    <td>
-                        <div class='tb-text'>2.25</div>
-                    </td>
-
-                </tr>
 
                 </tbody>
                 <tbody class="tab-category J-tab-compare">
@@ -235,7 +295,7 @@
                 </tr>
                 <tr class="tr-item">
                     <th>
-                        <div class="tb-title">电池可拆卸</div>
+                        <div class="tb-title">充电功率</div>
                     </th>
                     <td>
                         <div class='tb-text'>支持</div>
@@ -250,35 +310,16 @@
                         <div class="tb-title">电池续航时间</div>
                     </th>
                     <td>
-                        <div class='tb-text'>--</div>
-                    </td>
-                    <td>
                         <div class='tb-text'>约 135 分钟（在 1080p/30fps 分辨率模式下，关闭 RockSteady 时测得）， 约 63 分钟（在 4K/60fps（16：9） 分辨率模式下，开启
                             RockSteady 时测得）</div>
                     </td>
-
-                </tr>
-                </tbody>
-                <tbody class="tab-category J-tab-compare">
-                <tr class="tr-category">
-                    <th colspan="3">
-                        <h5 class="tb-subtit"><i class="i-fold"></i><em>镜头参数</em></h5>
-                    </th>
-                </tr>
-                <tr class="tr-item">
-                    <th>
-                        <div class="tb-title">镜头防抖</div>
-                    </th>
                     <td>
-                        <div class='tb-text'>电子防抖</div>
-                    </td>
-                    <td>
-                        <div class='tb-text'>电子防抖</div>
+                        <div class='tb-text'>--</div>
                     </td>
 
                 </tr>
-
                 </tbody>
+
 
                 <tbody class="tab-category J-tab-compare">
                 <tr class="tr-category">
